@@ -1,0 +1,30 @@
+@import '../components/searchTab.scss';
+@import '../components/searchResult.scss';
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+
+  // You might want to add global styles for buttons, inputs, etc.
+  input, button {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: #ffffff;
+    cursor: pointer;
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}

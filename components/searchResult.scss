@@ -1,0 +1,141 @@
+// SearchResult.scss
+
+.search-results-container {
+    display: flex;
+    width: 100%; // Assuming full-width container
+    padding: 20px; // Adjust as needed
+    box-sizing: border-box;
+  
+    .filters-section {
+      width: 20%; // Example, adjust width as needed
+      padding-right: 20px; // Spacing between filters and results
+      border-right: 1px solid #ddd; // Separator style
+      box-sizing: border-box;
+  
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    }
+  
+    .products-section {
+      flex-grow: 1; // Takes up the remaining space
+      padding-left: 20px; // Spacing between filters and results
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 1rem;
+      box-sizing: border-box;
+  
+      .product-card {
+        background-color: #fff; // Assuming white cards
+        border: 1px solid #ddd; // Border for the card
+        border-radius: 8px; // Rounded corners for the card
+        overflow: hidden; // Ensures nothing spills out
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Subtle shadow
+        transition: transform 0.3s ease;
+  
+        &:hover {
+          transform: translateY(-5px); // Slight lift effect on hover
+        }
+  
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: cover; // Adjust if necessary
+        }
+  
+        .product-details {
+          padding: 10px;
+          text-align: left;
+        
+          .star-rating {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+      
+            .star {
+              cursor: pointer;
+              color: #ddd; // Default star color
+              margin-right: 5px; // Space between stars
+      
+              &.filled {
+                color: #ffd700; // Gold color for filled star
+              }
+
+          h3 {
+            margin: 0.5em 0; // Adjust as needed
+            color: #333; // Adjust font color as needed
+            font-size: 1em; // Adjust font size as needed
+          }
+  
+          p {
+            color: #666; // Adjust font color as needed
+            font-size: 0.9em; // Adjust font size as needed
+          }
+  
+          button {
+            background-color: #f0f0f0; // Adjust button background color as needed
+            color: inherit; // Button text color
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+  
+            &.wishlist-button {
+              color: #333; // Default color
+  
+              &.in-wishlist {
+                color: rgb(255, 255, 255); // Wishlist color
+              }
+            }
+  
+            &:hover {
+              background-color: darken($color: #f0f0f0, $amount: 5);
+            }
+          }
+        }
+      }
+  
+        .product-hover {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          
+          .view-product-btn {
+            display: none;
+            background-color: #fff;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase; // Style as per design
+            font-weight: bold; // Style as per design
+            cursor: pointer;
+          }
+        }
+  
+        &:hover {
+          .product-hover {
+            opacity: 1;
+  
+            .view-product-btn {
+              display: block; // Show button on hover
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  

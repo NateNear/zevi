@@ -1,0 +1,55 @@
+.search-container {
+    position: relative;
+    .search-input {
+      width: 300px; // Adjust the width as per the design
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 16px;
+      outline: none;
+  
+      // Shadow effect on focus
+      &:focus {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+  
+    .trends-container {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      padding: 20px;
+      z-index: 10;
+  
+      h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+  
+      .trend-items {
+        display: flex;
+        justify-content: space-between;
+        .trend-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          img {
+            width: 50px; // Adjust as needed
+            height: 50px; // Adjust as needed
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 5px;
+          }
+          p {
+            font-size: 14px;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+  
