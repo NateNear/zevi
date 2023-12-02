@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import Main from '../components/Main';
-import SearchBar from '../components/SearchBar';
+import Main from './components/main';
+import SearchBar from './components/searchBar';
 import useCommonStore from './store';
 const App = () => {
   const products = useCommonStore((state) => state.products);
