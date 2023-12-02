@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand'
 import { getProducts } from './api';
 
 const useCommonStore = create((set) => ({

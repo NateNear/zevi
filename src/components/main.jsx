@@ -1,4 +1,3 @@
-// import React from 'react';
 import Products from './product';
 import Filter from './filter';
 import useCommonStore from '../store';
@@ -6,8 +5,9 @@ import useCommonStore from '../store';
 const Main = () => {
   const searchTerm = useCommonStore((state) => state.searchTerm);
 
+  // Use optional chaining to safely access `length`
   return (
-    searchTerm.length !== 0 && (
+    searchTerm?.length !== 0 && (
       <div className="h-full bg-white p-4">
         <h3 className="text-2xl font-bold">Search results</h3>
         <div className="grid grid-cols-12 py-4 ">

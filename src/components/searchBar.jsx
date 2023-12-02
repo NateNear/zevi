@@ -1,26 +1,22 @@
-// import React from 'react';
 import { useState, useRef } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import logo from '../assets/zevilogo.png';
 
 import useCommonStore from '../store';
 
-const SearchBar = ({ suggestions }) => {
+const SearchBar = ({ suggestions = [] }) => { // Set default value for suggestions
   const searchTerm = useCommonStore((state) => state.searchTerm);
   const setSearchTerm = useCommonStore((state) => state.setSearchTerm);
 
-  //  to show suggestions box
   const [isSuggestions, setIsSuggestions] = useState(false);
-
-  // ref element for handling search input
   const inputEl = useRef();
 
   const handleInputChange = () => {
-    // setSearchTerm(inputEl.current.value);
     setSearchTerm(inputEl.current.value);
   };
 
-  suggestions = suggestions.slice(0, 4);
+  // Safely slice the suggestions array
+  const Suggestions = Array.isArray(suggestions) ? suggestions.slice(0, 4) : [];
 
   return (
     <div className="p-5">
@@ -60,7 +56,7 @@ const SearchBar = ({ suggestions }) => {
             ))}
           </div>
           <h2 className="font-semibold text-md mt-5">Popular Suggestions</h2>
-          {suggestions.map((item) => (
+          {Suggestions.map((item) => (
             <div key={item?.id}>
               <p className="mt-2 font-medium text-xs"> {item?.name} </p>
             </div>
