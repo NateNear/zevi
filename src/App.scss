@@ -1,30 +1,397 @@
-@import '../components/searchTab.scss';
-@import '../components/searchResult.scss';
+body {
+  background: white;
+  width: 100%;
+}
 
-.App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px;
-  background-color: #f7f7f7;
-  min-height: 100vh;
-  font-family: 'Arial', sans-serif;
+.Home {
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/backgroundimg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
 
-  // You might want to add global styles for buttons, inputs, etc.
-  input, button {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  &.clicked {
+    background-image: none;
+
+    .search-bar-container {
+      padding-top: 0;
+      padding-top: 3%;
+    }
+
+    .searchicon {
+      display: none;
+    }
   }
 
-  button {
-    background-color: #ffffff;
-    cursor: pointer;
-    &:hover {
-      background-color: #f0f0f0;
+  .search-bar-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 8%;
+    height: 2rem;
+    margin: 0rem;
+
+    .search-bar {
+      background-color: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      width: 50%;
+      height: 5vh;
+      display: flex;
+      justify-content: center;
+      position: absolute;
     }
+  }
+
+  .search-input {
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    font-size: 23px;
+    padding: 20px;
+    color: #333;
+  }
+
+  .searchicon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    padding-right: 15px;
+    font-size: 30px;
+    font-weight: 10;
+  }
+
+  .logo {
+    position: absolute;
+    width: 8rem;
+    top: 18%;
+    right: 3%;
+    display: flex;
+  }
+
+  .grid-container {
+    padding-left: 2rem;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    grid-gap: 25px;
+    width: 60%;
+  }
+
+  .layout {
+    margin: 0px;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 100%;
+    padding: 0rem;
+    margin: 0rem;
+    font-size: 1rem;
+
+    &:hover {
+      .button {
+        display: block;
+        top: 200px;
+        position: absolute;
+        height: 40px;
+        width: 100%;
+        left: 0;
+      }
+    }
+
+    .image img {
+      padding-top: 1rem;
+      max-width: 100%;
+      width: 160px;
+      height: 200px;
+      position: relative;
+    }
+
+    .button {
+      display: none;
+      border: none;
+      background-color: #b2a2fa;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .title {
+      font-size: 1rem;
+      text-align: center;
+      border: 0rem;
+      margin: 0px;
+
+      .price {
+        color: blue;
+
+        .strike {
+          color: black;
+        }
+      }
+    }
+  }
+
+  .container {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  header {
+    padding: -5rem;
+    margin: 0rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-bottom: 1rem;
+    padding-left: 7rem;
+    margin-top: -4rem;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+  }
+
+  .aside {
+    width: 400px;
+    padding: 10px;
+    height: 500vh;
+  }
+
+  .article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .categories {
+    margin-top: 20px;
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: left;
+      padding-left: 5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: left;
+      padding-left: 5rem;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"]:checked + label {
+      font-weight: bold;
+      color: #007bff;
+    }
+  }
+
+  .pricenav {
+    margin-top: 20px;
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: left;
+      padding-left: 5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: left;
+      padding-left: 5rem;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"]:checked + label {
+      font-weight: bold;
+      color: #007bff;
+    }
+  }
+
+  .star {
+    padding-bottom: 1rem;
+  }
+
+  .rating {
+    padding-left: 5rem;
+  }
+
+  .card {
+    position: relative;
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+    margin: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .fa-heart {
+      z-index: 1;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        position: absolute;
+        opacity: 1;
+      }
+    }
+  }
+
+  .red-heart {
+    position: absolute;
+    color: red;
+  }
+
+  .heart-icon {
+    position: absolute;
+    font-size: 24px;
+    border: 2px solid red;
+    border-radius: 50%;
+    padding: 10px;
+    color: transparent;
+    cursor: pointer;
+  }
+
+  .trends {
+    position: absolute;
+    z-index: 1;
+    margin-top: 60px;
+    background: white;
+    left: -150px;
+    width: 150%;
+    border: 1.5px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    h3 {
+      padding-left: 5rem;
+      font-size: 1.5rem;
+    }
+
+    .trend-footer {
+      margin-left: 70px;
+    }
+
+    .trends-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .trend-item {
+      margin: 10px;
+      width: 120px;
+      padding: 20px;
+      border: 1px solid black;
+      background: white;
+
+      .trend-image img {
+        width: 120px;
+        height: 160px;
+      }
+
+      .tittle {
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
+
+    .cancel-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      width: 50px;
+      font-size: 2rem;
+      background: red;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    padding-top: 3%;
+  }
+
+  .search-bar {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .search-input {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .logosrc {
+    position: absolute;
+    width: 6rem;
+    height: 4rem;
+    left: 150%;
+    top: 15%;
+    padding-left: 30%;
+    margin-right: 0;
+    right: 0;
+  }
+
+  .logonsrc {
+    top: 180%;
+    position: absolute;
+  }
+
+  .grid-container {
+    padding: 1rem;
+    width: 50rem;
   }
 }
